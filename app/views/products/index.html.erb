@@ -1,0 +1,28 @@
+<h1>Listing Proucts</h1>
+
+<% if @products.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>color</th>
+        <th>Status</th>
+        <th>Inward Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= product.name %></td>
+          <td><%#= TODO: product.price %></td>
+          <td><%= product.color %></td>
+          <td><%= product.status %></td>
+          <td><%= product.inward_date %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>>
+<% else %>
+  <p>There are no products at the moment! </p>
+<% end %>
