@@ -5,5 +5,5 @@ class Product < ApplicationRecord
   Types = [TYPE_PEN, TYPE_NOTEBOOK]
 
   validates :type, inclusion: { in: Types }, presence: true
-  validates :name, :inward_date, presence: true
+  validates :name, :price, :inward_date, presence: true
 end
