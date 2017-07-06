@@ -1,6 +1,8 @@
 <h1>Listing Proucts</h1>
 
-<%= link_to 'Add new Product', new_product_path %>
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Add new Product', new_product_path(type: 'Pen') %>
 
 <% if @products.present? %>
   <table>
@@ -11,6 +13,7 @@
         <th>color</th>
         <th>Status</th>
         <th>Inward Date</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -21,6 +24,7 @@
           <td><%= product.color %></td>
           <td><%= product.status %></td>
           <td><%= product.inward_date %></td>
+          <td><%#= TODO: link_to 'Edit', edit_product_path(product) %></td>
         </tr>
       <% end %>
     </tbody>
