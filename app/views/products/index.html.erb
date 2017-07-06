@@ -1,5 +1,7 @@
 <h1>Listing Proucts</h1>
 
+<%= link_to 'Add new Product', new_product_path %>
+
 <% if @products.present? %>
   <table>
     <thead>
@@ -22,7 +24,7 @@
         </tr>
       <% end %>
     </tbody>
-  </table>>
+  </table>
 <% else %>
   <p>There are no products at the moment! </p>
 <% end %>
