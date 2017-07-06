@@ -2,7 +2,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Add new Product', new_product_path(type: 'Pen') %>
+<%= link_to 'Add new Pen', new_product_path(type: 'Pen') %>
 
 <% if @products.present? %>
   <table>
@@ -10,6 +10,7 @@
       <tr>
         <th>Name</th>
         <th>Price</th>
+        <th>Type</th>
         <th>color</th>
         <th>Status</th>
         <th>Inward Date</th>
@@ -21,10 +22,11 @@
         <tr>
           <td><%= product.name %></td>
           <td><%#= TODO: product.price %></td>
+          <td><%= product.type.to_s %></td>
           <td><%= product.color %></td>
           <td><%= product.status %></td>
           <td><%= product.inward_date %></td>
-          <td><%#= TODO: link_to 'Edit', edit_product_path(product) %></td>
+          <td><%= link_to 'Edit', edit_product_path(product) %></td>
         </tr>
       <% end %>
     </tbody>
