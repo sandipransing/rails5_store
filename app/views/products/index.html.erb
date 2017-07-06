@@ -1,8 +1,10 @@
-<h1>Listing Proucts</h1>
+<h1>Listing Products</h1>
 
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Add new Pen', new_product_path(type: 'Pen') %>
+<% Product::Types.each do |type| %>
+  <%= link_to "Add new #{type}", new_product_path(type: type) %>
+<% end %>
 
 <% if @products.present? %>
   <table>
