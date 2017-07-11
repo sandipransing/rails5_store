@@ -29,6 +29,10 @@ module Store
       g.test_framework :rspec
     end
 
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance| 
+      html_tag
+    end
+
     # Don't generate system test files.
     config.generators.system_tests = nil
 

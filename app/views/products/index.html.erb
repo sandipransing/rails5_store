@@ -1,34 +1,38 @@
-<h1>Listing Products</h1>
+<%- model_class = Product -%>
+<div class="page-header">
+  <h1>Listing <%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
 
-<p id="notice"><%= notice %></p>
-
-<% Product::Types.each do |type| %>
-  <%= link_to "Add new #{type}", new_product_path(type: type) %>
+<% model_class::Types.each do |type| %>
+  <%= link_to "Add new #{type}", new_product_path(type: type), :class => 'btn btn-primary' %>
 <% end %>
 
 <% if @products.present? %>
-  <table>
+  <table class="table table-striped">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Type</th>
-        <th>color</th>
-        <th>Status</th>
-        <th>Inward Date</th>
-        <th></th>
+        <th><%= model_class.human_attribute_name(:name) %></th>
+        <th><%= model_class.human_attribute_name(:price) %></th>
+        <th><%= model_class.human_attribute_name(:type) %></th>
+        <th><%= model_class.human_attribute_name(:color) %></th>
+        <th><%= model_class.human_attribute_name(:status) %></th>
+        <th><%= model_class.human_attribute_name(:inward_date) %></th>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th>
       </tr>
     </thead>
     <tbody>
       <% @products.each do |product| %>
         <tr>
-          <td><%= product.name %></td>
-          <td><%= product.f_price %></td>
-          <td><%= product.type.to_s %></td>
-          <td><%= product.f_color %></td>
-          <td><%= product.f_status %></td>
-          <td><%= product.f_inward_date %></td>
-          <td><%= link_to 'Edit', edit_product_path(product) %></td>
+            <td><%= product.name %></td>
+            <td><%= product.f_price %></td>
+            <td><%= product.type.to_s %></td>
+            <td><%= product.f_color %></td>
+            <td><%= product.f_status %></td>
+            <td><%= product.f_inward_date %></td>
+          <td>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                        edit_product_path(product), :class => 'btn btn-default btn-xs' %>
+          </td>
         </tr>
       <% end %>
     </tbody>
