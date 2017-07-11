@@ -23,11 +23,11 @@
       <% @products.each do |product| %>
         <tr>
           <td><%= product.name %></td>
-          <td><%= product.price %></td>
+          <td><%= product.f_price %></td>
           <td><%= product.type.to_s %></td>
-          <td><%= product.color %></td>
-          <td><%= product.status %></td>
-          <td><%= product.inward_date %></td>
+          <td><%= product.f_color %></td>
+          <td><%= product.f_status %></td>
+          <td><%= product.f_inward_date %></td>
           <td><%= link_to 'Edit', edit_product_path(product) %></td>
         </tr>
       <% end %>
