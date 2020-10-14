@@ -96,7 +96,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday-http-cache (2.2.0)
       faraday (>= 0.8)
-    ffi (1.9.18)
+    ffi (1.13.1)
     git (1.7.0)
       rchardet (~> 1.8)
     globalid (0.4.0)
